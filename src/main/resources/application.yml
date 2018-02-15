@@ -1,0 +1,49 @@
+
+server:
+  port: 8080
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+  use-forward-headers: true # render links correctly behind a proxy
+
+security:
+  require-ssl: true # we only accept https on this app
+
+logging:
+  level:
+    org:
+      springframework:
+        security: debug
+
+---
+
+spring:
+  profiles: with-ssl
+
+
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:ssl/my-keystore.p12
+    key-alias: spring-security-demo
+    key-store-password: spring-security-demo
+    key-store-type: PKCS12
+    #trust-store: classpath:ssl/truststore.jks
+    #trust-store-password: spring-security-demo
+    client-auth: need
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+  use-forward-headers: true # render links correctly behind a proxy
+
+security:
+  require-ssl: true # we only accept https on this app
+  headers:
+    hsts: none
+
+logging:
+  level:
+    org:
+      springframework:
+        security: debug
