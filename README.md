@@ -41,7 +41,7 @@ security:
 
 ````
 
-## Thymeleaf
+## Security features via Thymeleaf integration
 
 The example app is using Thymeleaf to render pages. Together with Spring Security and Spring Boot we get automatic CRSF
 handling and proper output/input encoding/decoding.
