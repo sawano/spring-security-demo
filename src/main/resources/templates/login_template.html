@@ -30,7 +30,7 @@
 <div class="container">
     <h1>Login page</h1>
     <p th:if="${error}" class="error">Wrong user or password</p>
-    <form th:action="@{/login}" method="post">
+    <form action="#" th:action="@{/login}" method="post">
         <div class="form-group">
             <label for="username">Username</label>:
             <input type="text" id="username" name="username" autofocus="autofocus"/> <br/>

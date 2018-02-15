@@ -40,3 +40,41 @@ security:
   require-ssl: true # we only accept https on this app
 
 ````
+
+## Thymeleaf
+
+The example app is using Thymeleaf to render pages. Together with Spring Security and Spring Boot we get automatic CRSF
+handling and proper output/input encoding/decoding.
+
+E.g. the Thymeleaf template looks like this:
+````html
+<form action="#" th:action="@{/login}" method="post">
+    <div class="form-group">
+        <label for="username">Username</label>:
+        <input type="text" id="username" name="username" autofocus="autofocus"/> <br/>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>:
+        <input type="password" id="password" name="password"/> <br/>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+````
+
+And the rendered HTML will have the CSRF token added to it automatically:
+````html
+<form method="post" enctype="application/x-www-form-urlencoded" action="/login">
+    <div class="form-group">
+        <label for="username">Username</label>:
+        <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>:
+        <input type="password" id="password" name="password" /> <br />
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <input type="hidden" name="_csrf" value="dc1f7dfd-6c9c-4a8b-9d72-81e1a51de46e" />
+</form>
+````
+
+ 
