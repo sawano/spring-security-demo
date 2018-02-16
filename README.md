@@ -23,6 +23,9 @@ Location -> [https://localhost/login]
 Content-Length -> [0]
 ```` 
 
+## Session fixation attacks
+
+Spring Security provides session fixation attack protection by default. You can customize or disable it if you want.
 
 ## yml config
 
