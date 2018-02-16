@@ -41,9 +41,3 @@ security:
   require-ssl: true # we only accept https on this app
   headers:
     hsts: none
-
-logging:
-  level:
-    org:
-      springframework:
-        security: debug
