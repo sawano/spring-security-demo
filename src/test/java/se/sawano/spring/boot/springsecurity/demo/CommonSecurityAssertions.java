@@ -56,7 +56,9 @@ public final class CommonSecurityAssertions {
 
         public void hasValue(final String value) {
             final String actual = headerProvider.apply(headerName);
-            assertEquals("Expected header '" + headerName + "' to have value: '" + value + "', but was: '" + actual + "'.", actual, value);
+            assertEquals("Expected header '" + headerName + "' to have value: '" + value + "', but was: '" + actual + "'.",
+                         value,
+                         actual);
         }
     }
 }
